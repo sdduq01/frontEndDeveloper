@@ -4,6 +4,9 @@ const newPElement = document.createElement("p");
 const item7 = document.createElement("li");
 const item8 = document.createElement("li");
 const item9 = document.createElement("li");
+const originalP = contentArea.querySelector("p");
+const clonedP = originalP.cloneNode(true);
+
 
 newPElement.textContent = "Fuí creado con createElement";
 item7.textContent = "Item 7";
@@ -25,3 +28,11 @@ listArea.before(item8);
 listArea.after(item9);
 item1.remove();
 listArea.removeChild(listArea.firstElementChild);
+
+clonedP.textContent = "Texto clonado";
+
+contentArea.append(clonedP);
+
+const itemToReplace = listArea.children[2];
+itemToReplace.replaceWith(clonedP);
+
